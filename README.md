@@ -11,7 +11,7 @@ kubectl get nodes,namespaces,services,deployments,replicaset,pods,secrets,config
 
 kubectl create deployment
 
-kubectl apply -f configFileName 
+kubectl apply -f configFileName  --namespace=namespaceName
 
 kubectl describe pods
 
@@ -20,6 +20,9 @@ kubectl logs podname
 kubectl exec -it podnme command
 
 ## Why Namespaces
+
+Consider this like a portlets within Portal container where every portet has its own
+portlet-id . Every portlet has its own boundry but at the same time ,a portlet is allowed to interact with global objects. Also other portlets can access this portet with its portlet id. (but this statement is very generic and read the below to get more and more details)
 
 1. `can be used to group similar applications`
 2. `Conflicts : Many teams , same application`
@@ -44,4 +47,15 @@ kubectl exec -it podnme command
  
       `when components are created in a cluster without a namespace ,components are
       created in `default` namespace`
+      
+      
+  ## K8 Ingress
+  
+  ### to do 
+  
+  ## Helm
+  
+  
+  
+      
     
