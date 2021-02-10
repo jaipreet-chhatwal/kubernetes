@@ -54,6 +54,66 @@ portlet-id . Every portlet has its own boundry but at the same time ,a portlet i
   ### to do 
   
   ## Helm
+   `Package manager for k8 like npm, brew,apt. It packages YAML files and distributes
+  and distributes them in public and private repositories`
+  
+ ### Helm charts
+ 
+ `Bundle of YAML files`
+ `Create your own Helm Charts with Helm`
+ `Push them to Heml Repository`
+ 
+ Common components like DB, redis,elk etc are commonly available so can be reused and
+ this thr are publiv and private registeries for helm charts. 
+ It is also a templating engine in which references can be defined in YAML files instead of
+ actual values like
+ >  name : {{ .Values.container.name }} where this Values object is referenced from a 
+ values.yaml file. `Values object is either defined via YAML file or with --set flag in 
+ command line`
+ 
+ ### Helm chart Structure : Templating Feture
+ 
+ myChart/
+    Chart.yaml
+    values.yaml
+    charts/
+    templates/
+    ...
+ `heml install <chartname>`
+ `helm install --values=my-values.yaml <chartname>` 
+ Important Note : Default values are picked up from values.yaml file but if you create a
+ new yaml file lets say my-values.yaml and overide a value in this file, so overidden value 
+ will be picked from my-values.yaml file and remaining values will be picked from Default 
+ values.yaml file
+ 
+ ### Release Management
+ 
+ heml v.2 
+ Uses a helm client(cli) and server(Tiller deployed in k8 cluster) to execute release
+ management. Here Tiller stores the last state of configuration  and we can use commands like
+ 
+ helm  install <chartname>
+ helm  upgrade <chartname>
+ helm  rollback <chartname>
+    
+ Problem with this architecture 
+ 
+ - Tiller has too much power inside k8 cluster
+ - Security issue
+ 
+ So in heml 3 , it was removed
+ 
+ 
+ ## K8 volumes
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
   
   
   
